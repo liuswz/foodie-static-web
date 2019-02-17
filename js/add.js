@@ -7,11 +7,11 @@ $(function () {
     $(".add").click(function(){
         $(".subFly").show();
         var n = $(this).prev().text();
+       
+        
         var num = parseFloat(n);
         if(n==0){num =1}
-        else{
-            num =parseInt(n) +1;
-        }
+      
         $(".ad").prev().text(num);
         e = $(this).prev();
 		
