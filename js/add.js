@@ -4,7 +4,7 @@ $(function () {
     var e;
 	
 	//商品点击增加
-    $(".add").click(function(){
+    $(".adds").click(function(){
         $(".subFly").show();
         var n = $(this).prev().text();
        
@@ -113,6 +113,7 @@ $(function () {
 		
 		//判断购物车里是否有商品，是否有相同规格的商品
 		if($(".list-content ul li").length <= 0){
+           
 			var addtr = '<li class="food">';
 			addtr += '<div><span class="accountName" data-icon="'+dataIconN+'">'+m+'</span><span class="taste">'+taste+'</span></div>';
 			addtr += '<div><span>￥</span><span class="accountPrice">'+sum+'</span></div>'	;					
@@ -125,8 +126,10 @@ $(function () {
 			addtr += '</li>';						
 			$(".list-content ul").append(addtr);
 			return;
-		}else{          
+		}else{    
+            alert("2");      
 			$(".list-content ul li").each(function(){
+                alert("3");
 				if ($(this).find("span.accountName").html() == m && $(this).find(".taste").html() == taste) {
 					var count = parseInt($(this).find(".li_acount").html());
 					count += parseInt(n);
@@ -134,12 +137,14 @@ $(function () {
 					flag = true;
 					return false;
 				}else {
+                    alert("4");
 					flag = false;
 				}
 			})
 		}
 		//如果为默认值也就是说里面没有此商品，所以添加此商品。
 		if (flag == false) {
+            alert("5");
 			var addtr = '<li class="food">';
 			addtr += '<div><span class="accountName" data-icon="'+dataIconN+'">'+m+'</span><span class="taste">'+taste+'</span></div>';
 			addtr += '<div><span>￥</span><span class="accountPrice">'+sum+'</span></div>'	;					
@@ -241,4 +246,21 @@ $(function () {
         $(".up1").hide();
         jss();//改变按钮样式
     });
+
+    $("#btnselect").click(function(){
+        var n = $('.ad').prev().text();
+        var m = $(".subName dd:nth-child(2) p:nth-child(1)").text();    //当前商品名称
+        var taste = $(".subChose .m-active").text();
+        var acount =n;
+        var sum =parseFloat($(".subName dd p:nth-child(2) span:nth-child(2)").text())*acount;
+        var price =parseFloat($(".subName dd p:nth-child(2) span:nth-child(2)").text());
+		
+        var dataIconN = $(this).parent().children(".subName").children("dd").children("p:first-child").attr("data-icon");
+     alert(m);
+     alert(taste);
+     alert(acount);
+     alert(sum);
+     alert(price);
+     alert(dataIconN);
+      });
 });

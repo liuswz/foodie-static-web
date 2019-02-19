@@ -6,6 +6,7 @@
 <title>商品分类、购物车</title>
 <link rel="stylesheet" type="text/css" href="css/base.css">
 <link rel="stylesheet" href="css/classify.css">
+
 </head>
 <body>
 <div class="header">
@@ -90,12 +91,12 @@
             <li><span>实惠炒菜</span></li>
         </ul>
     </div>
-    <div class="con">
+    <div class="con"  id="app">
         <div class="right-con con-active" style="display: none;">
             <ul>
                 <li>
                     <div class="menu-img"><img src="images/demo.jpg"></div>
-                    <div class="menu-txt">
+                    <div class="menu-txt" v-model="dish">
                         <h4 data-icon="00">珍珠奶茶</h4>
                         <p class="list1">好吃</p>
                         <p class="list2">
@@ -104,23 +105,23 @@
                         <div class="btn">
                             <button class="minus"></button>
                             <i>0</i>
-                            <button class="add"></button>
+                            <button class="add" v-on:click="add_num"></button>
                             <i class="price">2.2</i>
                         </div>
                     </div>
                 </li>
                 <li>
                     <div class="menu-img"><img src="images/demo.jpg"></div>
-                    <div class="menu-txt">
-                        <h4 data-icon="01">辣子鸡</h4>
+                    <div class="menu-txt"  >
+                        <h4 data-icon="01" v-model="dish.name">辣子鸡</h4>
                         <p class="list1">好吃</p>
                         <p class="list2">
-                            <b>￥</b><b>3</b>
+                            <b>￥</b><b  v-model="dish.price">3</b>
                         </p>
                         <div class="btn">
                             <button class="minus"></button>
                             <i>0</i>
-                            <button class="add"></button>
+                            <button class="add" @click="add_num"></button>
                             <i class="price">3</i>
                         </div>
                     </div>
@@ -128,10 +129,10 @@
                 <li class="sell_out">
                     <div class="menu-img"><img src="images/demo.jpg"></div>
                     <div class="menu-txt">
-                        <h4 data-icon="02">麻婆豆腐</h4>
+                        <h4 data-icon="02"  v-model="dish.name">麻婆豆腐</h4>
                         <p class="list1">好吃</p>
                         <p class="list2">
-                            <b>￥</b><b>27</b>
+                            <b>￥</b><b v-model="dish.price">27</b>
                         </p>
                         <div class="btn" style="display:none">
                             <button class="minus"></button>
@@ -156,7 +157,7 @@
                         <div class="btn">
                             <button class="minus"></button>
                             <i>0</i>
-                            <button class="add"></button>
+                            <button class="add" ></button>
                             <i class="price">4.00</i>
                         </div>
                     </div>
@@ -196,7 +197,7 @@
             <span id="cartN" class="nowrap">总计：<span id="totalpriceshow">0</span>元</span> 
         </div>
         <div class="right">
-            <a id="btnselect" class="xhlbtn disable" href="order_notes.html">去结算</a>
+            <a id="btnselect" class="xhlbtn disable" >去结算</a>
         </div>
     </div>
 </div>
@@ -248,5 +249,44 @@
 </div>
 <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
 <script type="text/javascript" src="js/add.js"></script>
+<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+
+<script type="text/javascript">
+    new Vue({
+        el: "#app",
+        //data用于存放数据或者变量
+        data: {
+            dish:{
+              
+
+            }
+            //	dish_photo:null,
+
+        },
+        //用于数据初始化
+        created: function () {
+            // 	client.list({
+            //       'max-keys': 10
+            //       }).then(function (result) {
+            // 		console.log(JSON.stringify(result.objects))
+            //       }).catch(function (err) {
+            // 		alert(err);
+            //   });
+          
+        },
+        //用于存放所有的事件方法集合
+        methods: {
+
+            add_num(){
+
+               alert(JSON.stringify(this.dish));
+            }
+         
+        
+
+        }
+
+    })
+</script>
 </body>
 </html>

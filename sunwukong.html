@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+<title>商品分类、购物车</title>
+<link rel="stylesheet" type="text/css" href="css/base.css" />
+<link rel="stylesheet" href="css/classify.css" />
+</head>
+<body>
+<div class="header" id="app">
+    <div class="content-wrapper">
+        <!--<div class="avatar">-->
+            <!--<img width="64" height="64" th:src="@{${shop.photoUrl}}"/>-->
+        <!--</div>-->
+        <!--<div class="content">-->
+            <!--<div class="content_title">-->
+                <!--<span class="brand"></span>-->
+                <!--<span class="name" th:text="${shop.shopName}"></span>-->
+            <!--</div>-->
+            <!---->
+            <!--<div class="description" th:text="${shop.shopNotice}"> </div>-->
+            <!--&lt;!&ndash; <div class="support">-->
+                <!--<span class="icon decrease"></span>-->
+                <!--<span class="text">在线支付满28减5</span> -->
+            <!--</div> &ndash;&gt;-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="background">-->
+        <!--<img width="100%" height="100%" th:src="@{${shop.photoUrl}}"/>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;loading 提示信息&ndash;&gt;-->
+    <!--<div class="detail fade-transition" style="display: none;">-->
+        <!--<div class="detail-wrapper clearfix">-->
+        	<!--<div class="detail-close">-->
+                <!--<i class="icon-close"></i>-->
+            <!--</div>-->
+            <!--<div class="detail-main">-->
+                <!--<h1 class="name" th:text="${shop.shopName}"></h1>-->
+                <!--<div class="star-wrapper">-->
+                    <!--<div class="star star-48">-->
+                        <!--<span class="star-item on"></span><span class="star-item on"></span><span class="star-item on"></span><span class="star-item on"></span><span class="star-item off"></span>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--&lt;!&ndash;<div class="title">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="line"></div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="text">优惠信息</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="line"></div>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--<ul class="supports">-->
+                    <!--<li class="support-item">-->
+                        <!--<span class="icon decrease"></span>-->
+                        <!--<span class="text" th:text="${shop.shopNotice}"></span>-->
+                    <!--</li>-->
+                    <!--&lt;!&ndash;<li class="support-item">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<span class="icon discount"></span>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<span class="text">VC无限橙果汁全场8折</span>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<li class="support-item">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<span class="icon special"></span>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<span class="text">单人精彩套餐</span>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<li class="support-item">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<span class="icon invoice"></span>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<span class="text">该商家支持发票,请下单写好发票抬头</span>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<li class="support-item">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<span class="icon guarantee"></span>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<span class="text">已加入“外卖保”计划,食品安全保障</span>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                <!--</ul>-->
+                <!--&lt;!&ndash;<div class="title">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="line"></div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="text">商家公告</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="line"></div>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="bulletin">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p class="content">&ndash;&gt;-->
+                    	<!--&lt;!&ndash;粥品香坊其烹饪粥料的秘方源于中国千年古法，在融和现代制作工艺，由世界烹饪大师屈浩先生领衔研发。坚守纯天然、0添加的良心品质深得消费者青睐，发展至今成为粥类的引领品牌。是2008年奥运会和2013年园博会指定餐饮服务商。&ndash;&gt;-->
+                    <!--&lt;!&ndash;</p>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--<div class="main">-->
+    <!--<div class="left-menu" id="left">-->
+
+        <!--<ul >-->
+
+            <!--<li th:each="t :${typeToDishList}"><span th:text="${t.dishType.typeName}"></span></li>-->
+
+        <!--</ul>-->
+    <!--</div>-->
+    <!--<div class="con" >-->
+        <!--<div class="right-con " style="display: none;" th:each="dishes :${typeToDishList}">-->
+            <!--<ul >-->
+                <!--<li th:each="d :${dishes.dishList}">-->
+                    <!--<div class="menu-img"><img th:src="@{${d.photoUrl}}"/></div>-->
+                    <!--<div class="menu-txt">-->
+                        <!--<h4 data-icon="00" th:text="${d.name}"></h4>-->
+                        <!--<p class="list1" th:text="${d.introduction}"></p>-->
+                        <!--<p class="list2">-->
+                            <!--<b>￥</b><b th:text="${d.price}"></b>-->
+                        <!--</p>-->
+                        <!--<div class="btn">-->
+                            <!--<button class="minus"></button>-->
+                            <!--<i>0</i>-->
+                            <!--<button class="add"></button>-->
+                            <!--<i class="price" th:text="${d.price}">2.2</i>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</li>-->
+
+            <!--</ul>-->
+        <!--</div>-->
+
+    <!--</div>-->
+    <!--<div class="up1"></div>-->
+    <!--<div class="shopcart-list fold-transition">-->
+        <!--<div class="list-header">-->
+            <!--<h1 class="title">购物车</h1>-->
+            <!--<span class="empty">清空所有</span>-->
+        <!--</div>-->
+        <!--<div class="list-content">-->
+            <!--<ul></ul>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="footer">-->
+        <!--<div class="left">-->
+        	<!--<div class="count_num"><span id="totalcountshow">0</span></div>-->
+            <!--<span id="cartN" class="nowrap">总计：<span id="totalpriceshow">0</span>元</span> -->
+        <!--</div>-->
+        <!--<div class="right">-->
+            <!--<a id="btnselect" class="xhlbtn disable" href="order_notes.html">去结算</a>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--&lt;!&ndash;商品信息 - 弹出框&ndash;&gt;-->
+<!--<div class="subFly">-->
+    <!--<div class="up"></div>-->
+    <!--<div class="down">-->
+        <!--<a class="close" href="javascript:">-->
+            <!--<img src="images/close.png" alt=""/>-->
+        <!--</a>-->
+        <!--<dl class="subName">-->
+            <!--<dt><img class="imgPhoto" src="images/demo.jpg"/></dt>-->
+            <!--<dd>-->
+                <!--<p data-icon=""></p>-->
+                <!--<p><span>¥ </span><span class="pce"></span></p>-->
+                <!--&lt;!&ndash; <p>-->
+                    <!--<span>已选：“</span>-->
+                    <!--<span class="choseValue"></span>-->
+                    <!--<span>”</span>-->
+                <!--</p> &ndash;&gt;-->
+            <!--</dd>-->
+        <!--</dl>-->
+        <!--&lt;!&ndash; <dl class="subChose">-->
+            <!--<dt>规格</dt>-->
+            <!--<dd class="m-active">特大杯</dd>-->
+            <!--<dd>大杯</dd>-->
+            <!--<dd>中杯</dd>-->
+            <!--<dd>小杯</dd>-->
+        <!--</dl> &ndash;&gt;-->
+        <!--<dl class="subCount" style="display:none">-->
+            <!--<dt>购买数量</dt>-->
+            <!--<dd class="mydd">-->
+                <!--<div class="btn" style="padding-top:5px;">-->
+                    <!--<button class="ms" style="display: inline-block;">-->
+                    <!--<strong></strong>-->
+                    <!--</button>-->
+                    <!--<i class="mask_number">1</i>-->
+                    <!--<button class="ad">-->
+                    <!--<strong></strong>-->
+                    <!--</button>-->
+                    <!--<i class="price">0</i>-->
+                <!--</div>-->
+            <!--</dd>-->
+        <!--</dl>-->
+        <!--<div class="foot">-->
+            <!--<span>加入购物车</span>-->
+        <!--</div>-->
+        <p>{{ shop.shopName }}</p>
+    </div>
+</div>
+<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="js/add.js"></script>
+<script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
+<script type="text/javascript">
+
+    var typeToDishList = [{'dishList':[{'createTime':'2019-02-16 13:13:22.0','id':9,'introduction':'123','name':'\u732A\u8033\u6735','photoUrl':'https://lanke-foodie.oss-cn-beijing.aliyuncs.com/dishes/15502897555691332','price':123.0,'remark':'123','shopId':24,'typeId':10},{'createTime':'2019-02-16 13:10:34.0','id':11,'introduction':'\u9E21\u817F','name':'\u9E21\u817F','photoUrl':'https://lanke-foodie.oss-cn-beijing.aliyuncs.com//dishes/15502935284174445','price':11.0,'remark':'\u9E21','shopId':24,'typeId':10}],'dishType':{'createTime':'2019-02-15 10:53:51.0','id':10,'shopId':24,'typeName':'\u719F\u98DF'}},{'dishList':[{'createTime':'2019-02-17 00:22:16.0','id':3,'introduction':'1','name':'1','photoUrl':'https://lanke-foodie.oss-cn-beijing.aliyuncs.com//dishes/15502245897947129','price':1.0,'remark':'1','shopId':24,'typeId':11},{'createTime':'2019-02-16 13:13:39.0','id':5,'introduction':'\u9E21\u722A','name':'\u9E21\u722A','photoUrl':'https://lanke-foodie.oss-cn-beijing.aliyuncs.com/dishes/1550294017888744','price':1.0,'remark':'\u9E21\u722A','shopId':24,'typeId':11}],'dishType':{'createTime':'2019-02-15 10:54:37.0','id':11,'shopId':24,'typeName':'\u51C9\u83DC'}},{'dishList':[{'createTime':'2019-02-16 23:57:03.0','id':12,'introduction':'\u9505\u5305\u8089','name':'\u9505\u5305\u8089','photoUrl':'https://lanke-foodie.oss-cn-beijing.aliyuncs.com/dishes/15503326168714407','price':12.0,'remark':'\u9505\u5305\u8089','shopId':24,'typeId':12}],'dishType':{'createTime':'2019-02-15 10:56:47.0','id':12,'shopId':24,'typeName':'\u70ED\u83DC'}}];
+    var shop = {'createTime':'2019-02-12 16:37:33.0','id':24,'password':'12121212','photoUrl':null,'shopAddress':'11','shopEmail':'2639147439@qq.com','shopName':'11','shopNotice':null,'shopPhone':'13894838483','shopStatus':null,'username':'sunwukong'};
+    new Vue({
+        el: "#app",
+        //data用于存放数据或者变量
+        data: {
+            typeToDishList:{},
+            shop:{}
+            //	dish_photo:null,
+
+        },
+        //用于数据初始化
+
+        created: function () {
+            this.typeToDishList=typeToDishList;
+            this.shop=shop;
+            alert("sssssssss");
+            alert(typeToDishList);
+
+        },
+        //用于存放所有的事件方法集合
+        methods: {
+
+
+
+
+
+        }
+
+    })
+</script>
+</body>
+</html>
